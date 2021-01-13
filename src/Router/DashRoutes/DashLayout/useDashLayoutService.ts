@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useRouteMatch } from "react-router-dom";
 import * as React from "react";
+interface MatchParams {
+  key: string;
+}
 
-export default function useDashLayoutService(key: string) {
+export default function useDashLayoutService() {
+  const match = useRouteMatch<MatchParams>("/dash/:key");
   const history = useHistory();
-  const [dashKey, setDashKey] = useState<string>(key);
+  const [dashKey, setDashKey] = useState<string>(match?.params?.key || "money");
   const jumpRouteByKey = (event: React.SyntheticEvent, value: string) => {
     setDashKey(value);
     history.push(`/dash/${value}`);

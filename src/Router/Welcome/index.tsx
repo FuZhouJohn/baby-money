@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) =>
       position: "absolute",
       left: "50%",
       top: "50%",
-      transform: "translate(-50%, -50%) scale(0)",
+      transform: "translate(-50%, -50%) scale(1)",
       backgroundColor: theme.palette.primary.main,
       height: "1px",
       width: "1px",

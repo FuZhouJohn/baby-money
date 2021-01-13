@@ -8,7 +8,6 @@ import MoneyIcon from "@material-ui/icons/Money";
 import StatisticsIcon from "@material-ui/icons/Assessment";
 import React, { PropsWithChildren } from "react";
 import useDashLayoutService from "./useDashLayoutService";
-import { useRouteMatch } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -22,13 +21,8 @@ const Main = styled.div`
   overflow: auto;
 `;
 
-interface MatchParams {
-  key: string;
-}
-
 export default function DashLayout(props: PropsWithChildren<{}>) {
-  const match = useRouteMatch<MatchParams>("/dash/:key");
-  const dashLayoutService = useDashLayoutService(match?.params?.key || "money");
+  const dashLayoutService = useDashLayoutService();
 
   return (
     <Wrapper>
