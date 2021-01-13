@@ -1,15 +1,17 @@
-import {useCallback, useState} from "react";
-import {useHistory} from "react-router-dom";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import * as React from "react";
 
-export default function useDashLayoutService(){
-    const history = useHistory()
-    const [dashKey,setDashKey] = useState<string>('money')
-    const handleClick = useCallback((key)=>{
-        history.push(`/dash/${key}`)
-    },[ history])
-    return {
-        dashKey,
-        setDashKey,
-        handleClick
-    }
+export default function useDashLayoutService() {
+  const history = useHistory();
+  const [dashKey, setDashKey] = useState<string>("money");
+  const jumpRouteByKey = (event: React.SyntheticEvent, value: string) => {
+    setDashKey(value);
+    history.push(`/dash/${value}`);
+  };
+  return {
+    dashKey,
+    setDashKey,
+    jumpRouteByKey,
+  };
 }

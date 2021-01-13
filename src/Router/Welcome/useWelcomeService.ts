@@ -1,11 +1,9 @@
-import {useEffect} from "react";
-import {useHistory} from "react-router-dom";
+import { useContext } from "react";
+import { RouterService } from "../useRouterService";
 
-export default function useWelcomeService(){
-    const history = useHistory()
-    useEffect(()=>{
-        setTimeout(()=>{
-            history.push('/dash/money')
-        },3000)
-    },[history])
+export default function useWelcomeService() {
+  const routerService = useContext(RouterService);
+  return {
+    routerService,
+  };
 }
