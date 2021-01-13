@@ -5,7 +5,7 @@ import { useMount, useSessionStorageState } from "ahooks";
 export const RouterService = getServiceToken(useRouterService);
 
 export default function useRouterService() {
-  const [firstLoad, setFirstLoad] = useState<boolean>(false);
+  const [firstLoad, setFirstLoad] = useState<boolean>(true);
   const [stored, setStored] = useSessionStorageState<boolean>(
     "firstLoad",
     true

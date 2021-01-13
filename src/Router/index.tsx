@@ -14,7 +14,7 @@ export default function Router() {
           </Route>
         ) : (
           <Route path="/" exact>
-            <Redirect to={{ pathname: "/dash/money" }}></Redirect>
+            <Redirect to={{ pathname: "/dash/money" }} />
           </Route>
         )}
         <Route path="/dash">
