@@ -2,6 +2,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Welcome from "./Welcome";
 import DashRoutes from "./DashRoutes";
 import useRouterService, { RouterService } from "./useRouterService";
+import NoMatch from "./NoMatch";
 export default function Router() {
   const routerService = useRouterService();
   return (
@@ -16,9 +17,11 @@ export default function Router() {
             <Redirect to={{ pathname: "/dash/money" }}></Redirect>
           </Route>
         )}
-
         <Route path="/dash">
           <DashRoutes />
+        </Route>
+        <Route path="*">
+          <NoMatch />
         </Route>
       </Switch>
     </RouterService.Provider>

@@ -21,8 +21,8 @@ const useStyles = makeStyles((theme) =>
       top: "50%",
       transform: "translate(-50%, -50%) scale(0)",
       backgroundColor: theme.palette.primary.main,
-      height: "5px",
-      width: "5px",
+      height: "1px",
+      width: "1px",
       borderRadius: "50%",
     },
     welcome: {
@@ -38,8 +38,13 @@ export default function Welcome() {
   const history = useHistory();
   const classes = useStyles();
   const { routerService } = useWelcomeService();
+  const scale =
+    (document.documentElement.clientWidth >=
+    document.documentElement.clientHeight
+      ? document.documentElement.clientWidth
+      : document.documentElement.clientHeight) * 1.25;
   const { ref, animationRef } = useAnime({
-    scale: 200,
+    scale: scale,
     duration: 1500,
     easing: "easeInOutQuart",
     autoplay: false,

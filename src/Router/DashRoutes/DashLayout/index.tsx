@@ -9,6 +9,7 @@ import StatisticsIcon from "@material-ui/icons/Assessment";
 import React, { PropsWithChildren } from "react";
 import { makeStyles } from "@material-ui/core";
 import useDashLayoutService from "./useDashLayoutService";
+import { useRouteMatch } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -22,8 +23,13 @@ const useStyles = makeStyles({
   },
 });
 
+interface MatchParams {
+  key: string;
+}
+
 export default function DashLayout(props: PropsWithChildren<{}>) {
-  const dashLayoutService = useDashLayoutService();
+  const match = useRouteMatch<MatchParams>("/dash/:key");
+  const dashLayoutService = useDashLayoutService(match?.params?.key || "money");
   const classes = useStyles();
   return (
     <div className={classes.root}>

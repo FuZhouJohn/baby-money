@@ -1,5 +1,5 @@
 import DashLayout from "./DashLayout";
-import { Switch, useRouteMatch, Route } from "react-router-dom";
+import { Switch, useRouteMatch, Route, Redirect } from "react-router-dom";
 import Money from "../../Money";
 
 export default function DashRoutes() {
@@ -7,11 +7,18 @@ export default function DashRoutes() {
   return (
     <DashLayout>
       <Switch>
-        <Route path={`${path}/money`}>
+        <Route exact path={`${path}/money`}>
           <Money />
         </Route>
-        <Route path={`${path}/label`}>Label</Route>
-        <Route path={`${path}/statistics`}>Statistics</Route>
+        <Route exact path={`${path}/label`}>
+          Label
+        </Route>
+        <Route exact path={`${path}/statistics`}>
+          Statistics
+        </Route>
+        <Route path="*">
+          <Redirect to={{ pathname: `${path}/money` }}></Redirect>
+        </Route>
       </Switch>
     </DashLayout>
   );
