@@ -7,21 +7,20 @@ import LabelIcon from "@material-ui/icons/Label";
 import MoneyIcon from "@material-ui/icons/Money";
 import StatisticsIcon from "@material-ui/icons/Assessment";
 import React, { PropsWithChildren } from "react";
-import { makeStyles } from "@material-ui/core";
 import useDashLayoutService from "./useDashLayoutService";
 import { useRouteMatch } from "react-router-dom";
+import styled from "styled-components";
 
-const useStyles = makeStyles({
-  root: {
-    paddingBottom: 56,
-  },
-  bottomNav: {
-    position: "fixed",
-    bottom: 0,
-    left: 0,
-    right: 0,
-  },
-});
+const Wrapper = styled.div`
+  min-height: 100%;
+  min-height: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+`;
+const Main = styled.div`
+  flex-grow: 1;
+  overflow: auto;
+`;
 
 interface MatchParams {
   key: string;
@@ -30,11 +29,11 @@ interface MatchParams {
 export default function DashLayout(props: PropsWithChildren<{}>) {
   const match = useRouteMatch<MatchParams>("/dash/:key");
   const dashLayoutService = useDashLayoutService(match?.params?.key || "money");
-  const classes = useStyles();
+
   return (
-    <div className={classes.root}>
-      <div>{props.children}</div>
-      <Paper elevation={3} className={classes.bottomNav}>
+    <Wrapper>
+      <Main>{props.children}</Main>
+      <Paper elevation={3}>
         <BottomNavigation
           value={dashLayoutService.dashKey}
           showLabels
@@ -57,6 +56,6 @@ export default function DashLayout(props: PropsWithChildren<{}>) {
           />
         </BottomNavigation>
       </Paper>
-    </div>
+    </Wrapper>
   );
 }
