@@ -8066,10 +8066,10 @@ node-releases@^1.1.61, node-releases@^1.1.69:
   resolved "https://registry.npm.taobao.org/node-releases/download/node-releases-1.1.69.tgz?cache=0&sync_timestamp=1609790387592&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnode-releases%2Fdownload%2Fnode-releases-1.1.69.tgz#3149dbde53b781610cd8b486d62d86e26c3725f6"
   integrity sha1-MUnb3lO3gWEM2LSG1i2G4mw3JfY=
 
-"node-sass@npm:dart-sass":
-  version "1.25.0"
-  resolved "https://registry.npm.taobao.org/dart-sass/download/dart-sass-1.25.0.tgz#e00c0348118916e9d81cb485297184c131af1dad"
-  integrity sha1-4AwDSBGJFunYHLSFKXGEwTGvHa0=
+"node-sass@npm:sass":
+  version "1.32.4"
+  resolved "https://registry.npm.taobao.org/sass/download/sass-1.32.4.tgz?cache=0&sync_timestamp=1610415243901&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsass%2Fdownload%2Fsass-1.32.4.tgz#308bf29dd7f53d44ae4f06580e9a910ad9aa411e"
+  integrity sha1-MIvyndf1PUSuTwZYDpqRCtmqQR4=
   dependencies:
     chokidar ">=2.0.0 <4.0.0"
 
